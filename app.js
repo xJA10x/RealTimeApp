@@ -7,7 +7,45 @@ const moment = require('moment');
 
 // Builds services.
 // Idea services.
+class IdeaService {
 
+  // Builds constructor.
+  constructor() {
+
+    // Initializes to an empty array.
+    this.ideas = [];
+
+
+  }
+
+  // Builds async function.
+  // Returns ideas.
+  async find() {
+
+    return this.ideas;
+
+  }
+
+
+  // Creates ideas.
+  // Takes one parameter,
+  // data from the client.
+  async create(data) {
+
+    // Builds object.
+    const idea = {
+
+      id: this.ideas.length,
+      text: data.text,
+      tech: data.tech,
+      viewer: data.viewer
+
+    }
+
+
+  }
+
+}
 
  // Initializes express app.
  // Takes one parameter,
@@ -36,6 +74,7 @@ const moment = require('moment');
  const PORT = processs.env.PORT || 3030;
 
  // Litsens for request at a given port.
+ // Starts the server.
  app.listen(PORT).on('listening', () =>
 
    console.log(`Realtime server running on port $ {PORT}`)
