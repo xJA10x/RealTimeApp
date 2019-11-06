@@ -40,8 +40,15 @@ class IdeaService {
       tech: data.tech,
       viewer: data.viewer
 
-    }
+    };
 
+    // Attachs time to the ida object.
+    idea.time = moment().format('h:mm:ss a');
+
+    // Pushes new idea to the ideas array.
+    this.ideas.push(idea);
+
+    return idea;
 
   }
 
@@ -58,25 +65,37 @@ class IdeaService {
  // Configures Socket.io realtime API.
  app.configure(socketio());
  // Enables REST services.
- app.configure(express.res());
+ app.configure(express.rest());
  // Register service.
  app.use('/ideas', new IdeaService());
 
  // New connections connect to stream channel.
  // Connects to channel.
- app.on('connection', conn > app.channel('stream').join(conn))
+ app.on('connection', conn => app.channel('stream').join(conn))
  // Publish events to stream.
  // Takes one parameter,
  // a function.
  app.publish(data => app.channel('stream'));
 
  // Initiliazes variable.
- const PORT = processs.env.PORT || 3030;
+ const PORT = process.env.PORT || 3030;
 
  // Litsens for request at a given port.
  // Starts the server.
  app.listen(PORT).on('listening', () =>
 
-   console.log(`Realtime server running on port $ {PORT}`)
+   console.log(`Realtime server running on port ${PORT}`)
 
  )
+
+ // Creates idea.
+ // Takes one parameter,
+ // idea to create.
+ //app.service('ideas').create({
+
+   //text: 'Builds a cool app',
+   //tech: 'Node.js',
+   //viewer: 'Jowy',
+   //time: moment().format('h:mm:ss a')
+
+// });
