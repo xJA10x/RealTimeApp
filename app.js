@@ -4,7 +4,6 @@ const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
 const moment = require('moment');
 
-
 // Builds services.
 // Idea services.
 class IdeaService {
@@ -14,7 +13,6 @@ class IdeaService {
 
     // Initializes to an empty array.
     this.ideas = [];
-
 
   }
 
@@ -91,11 +89,11 @@ class IdeaService {
  // Creates idea.
  // Takes one parameter,
  // idea to create.
- //app.service('ideas').create({
+ app.service('ideas').create({
 
-   //text: 'Builds a cool app',
-   //tech: 'Node.js',
-   //viewer: 'Jowy',
-   //time: moment().format('h:mm:ss a')
+   text: 'Builds a cool app',
+   tech: 'Node.js',
+   viewer: 'Jowy',
+   time: moment().format('h:mm:ss a')
 
-// });
+});
