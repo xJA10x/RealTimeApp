@@ -33,6 +33,7 @@ class IdeaService {
     // Builds object.
     const idea = {
 
+      // Properties.
       id: this.ideas.length,
       text: data.text,
       tech: data.tech,

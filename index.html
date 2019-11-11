@@ -60,7 +60,7 @@
           </form>
           <div>
             <div id="ideas">
-              <div class="card bg-secondary my-3">
+              <!--<div class="card bg-secondary my-3">
                 <div class="card-body">
                   <p class="lead">
                     Create a realtime app <strong>(Feathers.js)</strong>
@@ -70,10 +70,23 @@
                     <small>5:00:00</small>
                   </p>
                 </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
+    <script src="https://unpkg.com/@feathersjs/client@^4.3.0/dist/feathers.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+   <script>
+    // Socket.io setup
+    const socket = io('http://localhost:3030');
+
+    // Initialize feathers app.
+    const app = feathers();
+
+    // Registers socket.io to talk to our server.
+     app.configure(feathers.socketio(socket));
+
+   </script>
   </body>
 </html>
